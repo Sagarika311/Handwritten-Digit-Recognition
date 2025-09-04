@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model files (large)
+models/digit_recognition_model.h5
+models/*.png
+models/*.csv
+
+# Logs
+*.log
+
+# IDE files
+.vscode/
+.idea/
