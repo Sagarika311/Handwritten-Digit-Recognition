@@ -25,7 +25,7 @@ digit-recognition/
 
 ## 🧩 Workflow: Handwritten Digit Recognition
 
-![Workflow Diagram](root/workflow-diagram.png)
+![Workflow Diagram](workflow diagram.png)
 
 ---
 
