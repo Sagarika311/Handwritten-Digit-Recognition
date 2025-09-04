@@ -25,7 +25,8 @@ digit-recognition/
 
 ## 🧩 Workflow: Handwritten Digit Recognition
 
-![Workflow Diagram](workflow diagram.png)
+![Workflow Diagram](workflow-diagram.png)
+
 ---
 
 ## ⚡ Features
@@ -144,13 +145,13 @@ pip install -r requirements.txt
 
 ## 📷 Screenshots
 
-### 1. App Homepage
+### 1. Homepage View
 Shows the main interface of the Digit Recognition app.
-![App Homepage](screenshots/screenshot_homepage.png)
+![Homepage View](screenshots/Sceenshot_Homepage.png)
 
 ### 2. Navbar
-Navigation bar for accessing different app features with Instructions.
-![Navbar](screenshots/screenshot_navbar.png)
+Navigation bar for accessing different app features and instructions.
+![Navbar](screenshots/Screenshot_Navbar.png)
 
 ### 3. Upload & Predict
 Upload a handwritten digit image and view the predicted result.
