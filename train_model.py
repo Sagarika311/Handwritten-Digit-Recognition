@@ -131,8 +131,8 @@ def test_and_visualize(model, test_path):
 # 6. Main Script
 # ---------------------------
 if __name__ == "__main__":
-    train_path = r"C:\Users\hp\Desktop\PROJECTS\0 SEMS\SEM 8 DigitRecognitionUsingML\Train.csv"
-    test_path = r"C:\Users\hp\Desktop\PROJECTS\0 SEMS\SEM 8 DigitRecognitionUsingML\test.csv"
+    train_path = r"C:\Users\hp\Desktop\PROJECTS\SEMS\SEM 8 DigitRecognitionUsingML\Train.csv"
+    test_path = r"C:\Users\hp\Desktop\PROJECTS\SEMS\SEM 8 DigitRecognitionUsingML\test.csv"
 
     # Load and preprocess data
     X_train, X_val, y_train, y_val = load_and_preprocess_data(train_path)
@@ -153,7 +153,7 @@ if __name__ == "__main__":
     plot_confusion_matrix(model, X_val, y_val)
 
     # Save model
-    model.save(r"C:\Users\hp\Desktop\PROJECTS\0 SEMS\SEM 8 DigitRecognitionUsingML\digit_recognition_model.h5")
+    model.save(r"C:\Users\hp\Desktop\PROJECTS\SEMS\SEM 8 DigitRecognitionUsingML\digit_recognition_model.h5")
     print("Model saved as digit_recognition_model.h5")
 
     # Test predictions
