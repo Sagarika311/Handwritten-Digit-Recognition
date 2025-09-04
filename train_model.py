@@ -212,3 +212,5 @@ if __name__ == "__main__":
     predicted_labels = test_and_visualize(model, args.test)
     pd.DataFrame(predicted_labels, columns=["Label"]).to_csv(os.path.join(args.output, "test_predictions.csv"), index=False)
     print("✅ Predictions saved!")
+
+#train_model.py --train data/Train.csv --test data/test.csv --epochs 10 --batch_size 64 --output results
