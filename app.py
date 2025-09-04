@@ -53,14 +53,19 @@ st.write(f"App reloaded {st.session_state.reload_trigger} times")
 # ---------------------------
 # Load Model
 # ---------------------------
+MODEL_PATH = os.path.join("models", "digit_recognition_model.h5")
+
 @st.cache_resource
 def load_digit_model():
-    return load_model("digit_recognition_model.h5")
+    if not os.path.exists(MODEL_PATH):
+        st.error(f"Model file not found at `{MODEL_PATH}`. Please run `train_model.py` first.")
+        st.stop()
+    return load_model(MODEL_PATH)
 
 try:
     model = load_digit_model()
 except Exception as e:
-    st.error(f"Failed to load model. Make sure 'digit_recognition_model.h5' is in the same folder.\nError: {e}")
+    st.error(f"Failed to load model.\nError: {e}")
     st.stop()
 
 # ---------------------------
@@ -76,11 +81,11 @@ def process_image(img):
 # ---------------------------
 # Sample Image & Upload
 # ---------------------------
-sample_img_path = "sample_digit.png"
-use_sample = st.sidebar.button("Use Sample Image") and os.path.exists(sample_img_path)
+SAMPLE_IMG_PATH = os.path.join("assets", "sample_digit.png")
+use_sample = st.sidebar.button("Use Sample Image") and os.path.exists(SAMPLE_IMG_PATH)
 
 if use_sample:
-    st.session_state.uploaded_files = [sample_img_path]
+    st.session_state.uploaded_files = [SAMPLE_IMG_PATH]
 elif not st.session_state.uploaded_files:
     st.session_state.uploaded_files = st.file_uploader(
         "Choose image(s)...", type=["png", "jpg", "jpeg"], accept_multiple_files=True
@@ -108,7 +113,6 @@ if st.session_state.draw_mode:
             key="canvas"
         )
 
-    # Always show Loading placeholder first
     pred_placeholder = col2.empty()
     pred_placeholder.info("Loading...")  
 
@@ -116,12 +120,10 @@ if st.session_state.draw_mode:
         drawn_img = Image.fromarray(canvas_result.image_data.astype("uint8")).convert("L")
         st.session_state.drawn_image = drawn_img
 
-        # Predict
         img_array = process_image(drawn_img)
         prediction = model.predict(img_array)
         digit = np.argmax(prediction)
 
-        # Display prediction and drawn image
         pred_placeholder.success(f"Predicted Digit: **{digit}**")
         col2.image(drawn_img.resize((150, 150)), caption="Drawn Digit", use_container_width=False)
 
@@ -146,7 +148,7 @@ if all_images:
         img_placeholder = st.empty()
         pred_placeholder = st.empty()
         img_placeholder.image(img.resize((150, 150)), caption=title, use_container_width=False)
-        pred_placeholder.info("Loading...")  # default Loading
+        pred_placeholder.info("Loading...")  
 
         img_array = process_image(img)
         prediction = model.predict(img_array)
