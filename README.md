@@ -25,8 +25,6 @@ digit-recognition/
 
 ## 🧩 Workflow: Handwritten Digit Recognition
 
-```
-
 ┌───────────────┐
 │   Train CSV   │
 │   data/Train.csv  │
@@ -63,8 +61,6 @@ digit-recognition/
 │  - Output CSV │
 │  - Images     │
 └───────────────┘
-
-````
 
 ---
 
