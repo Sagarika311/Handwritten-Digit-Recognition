@@ -1,9 +1,6 @@
-```markdown
 # Handwritten Digit Recognition using CNN
 
 A simple Convolutional Neural Network (CNN) project for recognizing handwritten digits (0–9) using Python, TensorFlow/Keras, and Streamlit for a web interface.
-
----
 
 ## 📁 Repository Structure
 
@@ -213,4 +210,3 @@ Draw a digit on the canvas and see the predicted number.
 
 **Sagarika**
 
-```
